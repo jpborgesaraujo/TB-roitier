@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameverse 2072</title>
+    <link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css"> 
+    <script src="script/bootstrap/js/bootstrap.min.js"></script> 
+    <script src="script/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" href="images/icone.png" type="image/x-icon">
+    <style> 
+        .listaJogos .card{
+            margin-top: 0.5rem;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 95%;
+        }
+        .card img{
+            height: 20rem;
+            object-fit: cover;
+        }
+
+        .card-body {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+        }
+
+        body {
+            background: url('images/FundoPAG.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            color: rgb(255, 255, 255);
+        }
+
+        .navbar-brand img{
+            height: 3rem;
+        }
+
+        .img-fluid {
+            padding-top: 50px;
+        
+        }
+                
+       .btn-limpar {
+            background-color: #e74c3c; 
+            color: #ffffff;
+        }
+
+        .btn-close {
+            background-color: rgb(255, 255, 255) !important;
+            margin-right: 0.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .btn-modal{
+            margin-right: 2rem;
+        }
+
+        .modal{
+            color: black;
+        }
+        
+        .modal-header img{
+            height: 2rem;
+        }
+
+        .modal-body img{
+            height: 10rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="images/icone.png" alt="Logo da GAMEVERSE2072">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            Lançamento
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" onclick="listagemLancamento(2023)">2023</a></li>
+                            <li><a class="dropdown-item" onclick="listagemLancamento(2022)">2022</a></li>
+                            <li><a class="dropdown-item" onclick="listagemLancamento(2021)">2021</a></li>
+                            <li><a class="dropdown-item" onclick="listagemLancamento(2020)">2020</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            Gênero
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" onclick="listagemGenero('action')">Ação</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('adventure')">Aventura</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('arcade')">Arcade</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('casual')">Casual</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('racing')">Corrida</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('sports')">Esporte</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('strategy')">Estrategia</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('family')">Família</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('indie')">Indie</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('fighting')">Luta</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('platformer')">Plataforma</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('puzzle')">Puzzle</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('simulation')">Simulação</a></li>
+                            <li><a class="dropdown-item" onclick="listagemGenero('shooter')">Tiro</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            Studio
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" onclick="listagemPublicadora('activision-blizzard')">Activision</a></li>
+                            <li><a class="dropdown-item" onclick="listagemPublicadora('bethesda-softworks')">Bethesda</a></li>
+                            <li><a class="dropdown-item" onclick="listagemPublicadora('electronic-arts')">EA</a></li>
+                            <li><a class="dropdown-item" onclick="listagemPublicadora('microsoft-studios')">Microsoft</a></li>
+                            <li><a class="dropdown-item" onclick="listagemPublicadora('nintendo')">Nintendo</a></li>
+                            <li><a class="dropdown-item" onclick="listagemPublicadora('rockstar-games')">Rockstar</a></li>
+                            <li><a class="dropdown-item" onclick="listagemPublicadora('sony-interactive-entertainment')">Sony</a></li>
+                            <li><a class="dropdown-item" onclick="listagemPublicadora('valve')">Valve</a></li>
+                            <li><a class="dropdown-item" onclick="listagemPublicadora('ubisoft-entertainment')">Ubisoft</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <br>
+                <button class="btn btn-danger" onclick="limpar()">Limpar</button>
+                <a class="text-white position-absolute end-0 btn-modal" data-bs-toggle="modal" data-bs-target="#modalSobre">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-question-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Formulário de busca por ano -->
+    <div class="container my-3">
+        <form id="searchForm" class="d-flex justify-content-center">
+            <input type="number" id="yearInput" class="form-control me-2" placeholder="Digite o ano" required style="width: 200px;">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="logoCentro">
+                    <img src="images/LOGO.png" alt="Logo da Lista de Jogos" class="img-fluid position-absolute top-50 start-50 translate-middle" style="width: 30%;">
+                </div>
+                <div class="row listaJogos">
+                    <!-- Conteúdo da lista de jogos -->
+                </div>
+            <script src="script/API/script.js"></script>
+    <div class="modal fade" id="modalSobre" tabindex="-1" aria-labelledby="modalSobreLabel" aria-hidden="true" data-bs-backdrop="static">  
+        <div class="modal-dialog modal-dialog-scrollable modal-lg"> 
+            <div class="modal-content">
+                <div class="modal-header text-bg-dark">
+                    <img src="images/LOGO.png" alt="Logo da GAMEVERSE2072">
+                    <button type="button" class="btn-close text-bg-light" data-bs-dismiss="modal" aria-label="Close"></button> 
+                </div>
+                <div class="modal-body text-bg-dark">   
+                    <p>Bem-vindo à <strong>GAMEVERSE2072</strong>, uma página dedicada a apresentar os melhores games por diversas categorias!</p>
+                    <p>O site foi feito por alunos do curso de Bacharelado em Sistemas de Informação com auxílio de informações e funcionalidades da API de banco de dados de jogos RAWG.</p>
+                    <p>Vá em frente e pesquisa os melhores títulos por uma das categorias a seguir!</p>
+                    <hr>
+                    <div class="accordion" id="accordionSobre">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSobreDesenvolvedores" aria-expanded="false" aria-controls="collapseSobreDesenvolvedores">
+                                    Desenvolvedores
+                                </button>
+                            </h2>
+                            
+                            <div id="collapseSobreDesenvolvedores" class="accordion-collapse collapse" data-bs-parent="#accordionSobre">
+                                <div class="accordion-body bg-dark">
+                                    <div class="accordion" id="sub-collapseSobreDesenvolvedores">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseGabriella" aria-expanded="true" aria-controls="collapseGabriella">
+                                                    Gabriella Tavares Peixoto
+                                                </button>
+                                            </h2>
+                                            <div id="sub-collapseGabriella" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    <img src="images/imagesDesenvolvedores/fotoGabriella.jpg" class="m-3 rounded mx-auto d-block" alt="Foto de Gabriella Tavares">
+                                                    <ul>
+                                                        <li>Estudante do 4º Período do Curso de Bacharelado em Sistemas de Informação no <a href="https://ifgoiano.edu.br/home/index.php" target="_blank">Instituto Federal Goiano - Campus Ceres</a></li>
+                                                        <li>Técnica em Informática</li>
+                                                        <li>Estagiária na <a href="https://www.instagram.com/ipcontroltecnologias/" target="_blank">IP Control Tecnologias</a></li>
+                                                        <li>Rialma - GO</li>
+                                                        <li>Email: <a href="mailto:gabriella.tavaresif@gmail.com">gabriella.tavaresif@gmail.com</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseJoao" aria-expanded="true" aria-controls="collapseJoao">
+                                                    João Pedro Borges de Araujo
+                                                </button>
+                                            </h2>
+                                            <div id="sub-collapseJoao" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    <img src="images/imagesDesenvolvedores/fotoJoãopedro.jpeg" class="m-3 rounded mx-auto d-block" alt="Foto de João Pedro">
+                                                    <ul>
+                                                        <li>Estudante do 4º Período do Curso de Bacharelado em Sistemas de Informação no <a href="https://ifgoiano.edu.br/home/index.php" target="_blank">Instituto Federal Goiano - Campus Ceres</a></li>
+                                                        <li>Técnico em Informática</li>
+                                                        <li>Ceres - GO</li>
+                                                        <li>Email: <a href="mailto:yygyyughhjji@gmail.com">yygyyughhjji@gmail.com</a></li>
+                                                        <li><em>King of the world</em></li>
+                                                        <li><em>Playboy, multimilionário e filantropo e velho da lancha</em></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseLuis" aria-expanded="true" aria-controls="collapseLuis">
+                                                    Luis Gabriel Queiroz Carrijo
+                                                </button>
+                                            </h2>
+                                            <div id="sub-collapseLuis" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    <img src="images/imagesDesenvolvedores/fotoLuis.jpg" class="m-3 rounded mx-auto d-block" alt="Foto de Luis Gabriel">
+                                                    <ul>
+                                                        <li>Estudante do 4º Período do Curso de Bacharelado em Sistemas de Informação no <a href="https://ifgoiano.edu.br/home/index.php" target="_blank">Instituto Federal Goiano - Campus Ceres</a></li>
+                                                        <li>Dinamizador de Laboratórios de Informática</li>
+                                                        <li>Rubiataba - GO</li>
+                                                        <li>Email: <a href="mailto:2003lgqc@gmail.com">2003lgqc@gmail.com</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseNikolas" aria-expanded="true" aria-controls="collapseNikolas">
+                                                    Nikolas de Hor Ferreira Vale
+                                                </button>
+                                            </h2>
+                                            <div id="sub-collapseNikolas" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    <img src="images/imagesDesenvolvedores/fotoNikolas.jpg" class="m-3 rounded mx-auto d-block" alt="Foto de Nikolas de Hor">
+                                                    <ul>
+                                                        <li>Estudante do 4º Período do Curso de Bacharelado em Sistemas de Informação no <a href="https://ifgoiano.edu.br/home/index.php" target="_blank">Instituto Federal Goiano - Campus Ceres</a></li>
+                                                        <li>Analista de Sistemas na <a href="https://www.instagram.com/crvindustrialoficial/" target="_blank">CRV iNDUSTRIAL - GO</a></li>
+                                                        <li>Rialma - GO</li>
+                                                        <li>Email: <a href="mailto:nikolasdehor79@gmail.com">nikolasdehor79@gmail.com</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseRamiro" aria-expanded="true" aria-controls="collapseRamiro">
+                                                    Ramiro Vieira de Moura
+                                                </button>
+                                            </h2>
+                                            <div id="sub-collapseRamiro" class="accordion-collapse collapse">
+                                                <div class="accordion-body">
+                                                    <img src="images/imagesDesenvolvedores/fotoRamiro.jpg" class="m-3 rounded mx-auto d-block" alt="Foto de Ramiro Vieira">
+                                                    <ul>
+                                                        <li>Estudante do 4º Período do Curso de Bacharelado em Sistemas de Informação no <a href="https://ifgoiano.edu.br/home/index.php" target="_blank">Instituto Federal Goiano - Campus Ceres</a></li>
+                                                        <li>Técnico em Meio Ambiente</li>
+                                                        <li>Rialma - GO</li>
+                                                        <li>Email: <a href="mailto:ramirovieira09@gmail.com">ramirovieira09@gmail.com</a></li>
+                                                        <li>Pai de pet</li>
+                                                        <li><em>Designer Especialista Profissional com Mestrado e Doutorado Qualificado e Remunerado para tudo</em></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSobreReferencias" aria-expanded="false" aria-controls="collapseSobreReferencias">
+                                    Referências
+                                </button>
+                            </h2>
+                            <div id="collapseSobreReferencias" class="accordion-collapse collapse" data-bs-parent="#accordionSobre">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li><a href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" target="_blank">Folha de Estilo Bootstrap v5.3</a></li>
+                                        <li><a href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" target="_blank">Script Bootstrap v5.3</a></li>
+                                        <li><a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank">Documentação Bootstrap</a></li>
+                                        <li><a href="https://www.w3schools.com/html/default.asp" target="_blank">Documentação HTML da W3 Schools</a></li>
+                                        <li><a href="https://www.w3schools.com/css/default.asp" target="_blank">Documentação CSS da W3 Schools</a></li>
+                                        <li><a href="https://api.rawg.io/docs/" target="_blank">Documentação RAWG</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer text-bg-dark"> 
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script/API/script.js"></script>
+</body>
+</html>
