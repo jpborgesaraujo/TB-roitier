@@ -126,7 +126,9 @@ vagrant up
 
 # Conectar ao servidor
 vagrant ssh
-```
+
+# Acessar o servidor
+curl http://localhost:8080
 
 ### 2. Gerenciamento da VM
 
