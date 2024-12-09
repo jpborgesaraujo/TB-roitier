@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Update and upgrade system
+# Atualizar e fazer upgrade do sistema
 sudo apt-get update && sudo apt-get upgrade -y
 
-# Install basic security tools
+# Instalar ferramentas básicas de segurança
 sudo apt-get install -y ufw fail2ban auditd
 
-# Configure UFW (Uncomplicated Firewall)
+# Configurar o UFW (Firewall Simplificado)
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow ssh
@@ -14,20 +14,20 @@ sudo ufw allow http
 sudo ufw allow https
 sudo ufw enable
 
-# Configure Fail2Ban
+# Configurar o Fail2Ban
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 sudo sed -i 's/bantime  = 10m/bantime  = 1h/' /etc/fail2ban/jail.local
 sudo sed -i 's/maxretry = 5/maxretry = 3/' /etc/fail2ban/jail.local
 
-# Enable Auditd for logging
+# Habilitar o Auditd para registro de logs
 sudo systemctl enable auditd
 sudo systemctl start auditd
 
-# Disable root login via SSH
+# Desabilitar login root via SSH
 sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
 
-# Restart SSH service
+# Reiniciar o serviço SSH
 sudo systemctl restart sshd
 
-# Final security checks
-echo "Hardening do Server completo."
+# Verificações finais de segurança
+echo "Hardening do servidor completo."
