@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# Navigate to site directory
+# Navegar para o diretório do site
 cd /vagrant/meu_site
 
-# Build Docker image
+# Construir a imagem Docker
 docker build -t secure-web-server .
 
-# Run Docker container
+# Executar o contêiner Docker
 docker run -d \
   --name web_container \
   -p 80:80 \
   --restart unless-stopped \
   secure-web-server
 
-echo "Web server implantado com sucesso."
+echo "Servidor web implantado com sucesso."
