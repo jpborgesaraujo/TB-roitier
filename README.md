@@ -7,7 +7,60 @@ O projeto consiste no planejamento, instalação e configuração de um Servidor
 ## 🎯 Objetivos Específicos
 
 1. **Planejamento do Hardware**
-   - Detalhamento completo de especificações de processador, placa-mãe, memória RAM, armazenamento, placa de rede, fonte de alimentação, refrigeração e gabinete.
+Processador
+
+    Modelo: Intel Xeon E5-2680 v4
+        Núcleos: 14 núcleos físicos, 28 threads (hyper-threading).
+        Frequência Base: 2,4 GHz (turbo até 3,3 GHz).
+        Cache: 35 MB L3 cache.
+        Arquitetura: 64 bits, com suporte a AVX-512.
+
+Placa Mãe
+
+    Modelo: X99 MR9S v6
+        Chipset: Intel X99.
+        Memória: Suporte até 128 GB DDR4.
+        Conectividade: Múltiplas portas SATA III, suporte a RAID (0, 1, 5, 10).
+        PCIe: Slots para placas adicionais, incluindo gráficos ou rede.
+        Rede: 1 porta Gigabit Ethernet.
+
+Memória RAM
+
+    Capacidade: 64 GB (2x32 GB).
+    Tipo: DDR4, 3000 MHz.
+    ECC: Recomendado para estabilidade em servidores.
+
+Armazenamento
+
+    SSD: Mínimo 120 GB (para o SO), preferencialmente NVMe.
+    HDD: 1 TB ou mais para armazenamento de dados, 7200 RPM.
+
+Placa de Rede
+
+    Modelo integrado: Gigabit Ethernet.
+    Upgrade: Opção para rede 10 Gb via PCIe.
+
+Fonte de Alimentação
+
+    Potência: 650W a 800W.
+    Certificação: 80 PLUS Bronze ou superior.
+
+Sistema de Refrigeração
+
+    Cooler: Ar ou líquida dependendo da carga térmica esperada.
+    Ventilação: Ventoinhas de 120 mm ou 140 mm no gabinete.
+
+Gabinete
+
+    Formato: Torre ou rackmount.
+    Ventilação: Bom fluxo de ar para dissipação térmica.
+
+Sistema Operacional
+
+    Distribuições sugeridas: Ubuntu Server LTS ou CentOS Stream.
+    Arquitetura: 64 bits.
+    RAM: Mínimo 8 GB (16 GB recomendado).
+    Espaço: 20 GB para o SO.
 
 2. **Instalação e Configuração do Sistema Operacional**
    - Ubuntu 20.04 LTS
